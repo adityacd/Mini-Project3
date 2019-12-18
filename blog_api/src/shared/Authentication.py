@@ -3,6 +3,7 @@ import os
 import datetime
 from flask import json
 from ..models.UserModel import UserModel
+from functools import wraps
 
 
 class Auth():
