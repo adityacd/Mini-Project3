@@ -1,5 +1,7 @@
 from marshmallow import fields, Schema
 import datetime
+
+from src.models.BlogpostModel import BlogpostSchema
 from . import db
 from ..app import bcrypt
 
