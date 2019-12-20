@@ -10,8 +10,8 @@ blogpost_schema = BlogpostSchema()
 @Auth.auth_required
 def create():
     """
-  Create Blogpost Function
-  """
+    Create Blogpost Function
+    """
     req_data = request.get_json()
     req_data['owner_id'] = g.user.get('id')
     data, error = blogpost_schema.load(req_data)
@@ -27,8 +27,8 @@ def create():
 @blogpost_api.route('/', methods=['GET'])
 def get_all():
     """
-  Get All Blogposts
-  """
+    Get All Blogposts
+    """
     posts = BlogpostModel.get_all_blogposts()
     data = blogpost_schema.dump(posts, many=True).data
     return custom_response(data, 200)
@@ -38,7 +38,7 @@ def get_all():
 def get_one(blogpost_id):
     """
     Get A Blogpost
-  """
+    """
     post = BlogpostModel.get_one_blogpost(blogpost_id)
     if not post:
         return custom_response({'error': 'post not found'}, 404)
@@ -58,8 +58,8 @@ def custom_response(res, status_code):
 @Auth.auth_required
 def update(blogpost_id):
     """
-  Update A Blogpost
-  """
+    Update A Blogpost
+    """
     req_data = request.get_json()
     post = BlogpostModel.get_one_blogpost(blogpost_id)
     if not post:
@@ -81,8 +81,8 @@ def update(blogpost_id):
 @Auth.auth_required
 def delete(blogpost_id):
     """
-  Delete A Blogpost
-  """
+    Delete A Blogpost
+    """
     post = BlogpostModel.get_one_blogpost(blogpost_id)
     if not post:
         return custom_response({'error': 'post not found'}, 404)
