@@ -7,7 +7,6 @@ class BlogpostModel(db.Model):
     """
     Blogpost Model
     """
-
     __tablename__ = 'blogposts'
 
     id = db.Column(db.Integer, primary_key=True)
@@ -54,7 +53,6 @@ class BlogpostModel(db.Model):
 
 # add this new class
 class BlogpostSchema(Schema):
-
   """
   Blogpost Schema
   """
