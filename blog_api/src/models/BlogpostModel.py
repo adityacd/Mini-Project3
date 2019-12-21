@@ -53,9 +53,9 @@ class BlogpostModel(db.Model):
 
 # add this new class
 class BlogpostSchema(Schema):
-  """
-  Blogpost Schema
-  """
+    """
+    Blogpost Schema
+     """
     id = fields.Int(dump_only=True)
     title = fields.Str(required=True)
     contents = fields.Str(required=True)

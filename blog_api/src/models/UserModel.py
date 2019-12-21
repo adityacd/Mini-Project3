@@ -1,11 +1,12 @@
 from marshmallow import fields, Schema
 import datetime
 
+#from .BlogpostModel import BlogpostSchema
+from . import db
 from .BlogpostModel import BlogpostSchema
-from . import db, bcrypt
 
 
-# from ..app import bcrypt
+from ..app import bcrypt
 
 
 class UserModel(db.Model):
@@ -57,20 +58,18 @@ class UserModel(db.Model):
     def get_one_user(id):
         return UserModel.query.get(id)
 
-    def __repr(self):
-        return '<id {}>'.format(self.id)
-
     def __generate_hash(self, password):
         return bcrypt.generate_password_hash(password, rounds=10).decode("utf-8")
 
     def check_hash(self, password):
         return bcrypt.check_password_hash(self.password, password)
 
+    def __repr(self):
+        return '<id {}>'.format(self.id)
+
 
 class UserSchema(Schema):
-    """
-  User Schema
-  """
+    
     id = fields.Int(dump_only=True)
     name = fields.Str(required=True)
     email = fields.Email(required=True)
