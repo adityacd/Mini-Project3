@@ -3,6 +3,8 @@
 
 ## Created by Aditya Deshmukh
 
+Here is the heroku deployment [link](https://blogpost-tutorial.herokuapp.com).
+
 ## 1. Endpoint 1 successful running.
 
 ![endpoint 1](https://user-images.githubusercontent.com/37020817/71297589-1a138a00-2352-11ea-8099-1d43690897aa.png)
